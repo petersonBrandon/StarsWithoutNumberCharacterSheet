@@ -1,0 +1,93 @@
+
+.login_container {
+  --cutoffSize: 30px;
+
+  background-color: var(--4);
+  padding: 20px;
+  width: clamp(270px, 20vw, 80vw);
+
+  clip-path: 
+      polygon(
+        0% var(--cutoffSize),
+        var(--cutoffSize) 0%,
+        100% 0%,
+        100% calc(100% - var(--cutoffSize)),
+        calc(100% - var(--cutoffSize)) 100%,
+        0% 100%
+      );
+}
+  
+.login_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_item {
+  --cutoffSize: 15px;
+
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 10px;
+  width: clamp(200px, 18vw, 78vw);
+  border: none;
+  outline: none;
+  font-family: var(--font);
+
+  clip-path: 
+      polygon(
+        0% var(--cutoffSize),
+        var(--cutoffSize) 0%,
+        100% 0%,
+        100% calc(100% - var(--cutoffSize)),
+        calc(100% - var(--cutoffSize)) 100%,
+        0% 100%
+      );
+}
+
+.login_input {
+  background-color: var(--1);
+  font-size: clamp(0.5rem, 1rem, 5rem);
+  color: var(--4);
+  border-bottom: 1px solid var(--4);
+
+  transition-timing-function: ease;
+  transition-duration: 0.25s;
+}
+
+.login_input::placeholder {
+  color: var(--4);
+}
+
+.login_input:focus {
+  transition-timing-function: ease;
+  transition-duration: 0.25s;
+
+  border-bottom: 5px solid var(--5);
+}
+
+.logInbtn {
+  font-size: clamp(0.5rem, 1rem, 5rem);
+  background-color: var(--0);
+  color: var(--4);
+
+  transition-timing-function: ease;
+  transition-duration: 0.25s;
+}
+
+.logInbtn:hover {
+  transition-timing-function: ease;
+  transition-duration: 0.25s;
+
+  background-color: var(--2);
+  color: var(--1);
+}
+
+#static_logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

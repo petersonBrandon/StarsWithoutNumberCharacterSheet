@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400&display=swap');
 
 :root {
   --0: #062c43;
@@ -6,5 +6,6 @@
   --2: #5591a9;
   --3: #9ccddc;
   --4: #ced7e0;
+  --5: #ef5b5b;
   --font: 'Dosis', sans-serif;
 }

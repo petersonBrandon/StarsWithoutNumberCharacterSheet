@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
+import { motion } from 'framer-motion';
 import Spinner from '../react-components/Spinner'
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
   })
 
   return (
-    <div className="index_container">
+    <motion.div className="index_container" initial={{opacity: 1}} exit={{opacity: 0}}>
       <Head>
         <title>Stars Without Number</title>
         <meta name="description" content="Stars Without Number" />
@@ -21,6 +22,6 @@ export default function Home() {
       <main className="index_main_container">
         <Spinner />
       </main>
-    </div>
+    </motion.div>
   )
 }
