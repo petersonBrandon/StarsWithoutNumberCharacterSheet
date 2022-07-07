@@ -31,7 +31,7 @@ const Login = () => {
     await loginElements.start({ opacity: 0 })
     await loginContainer.start({ scaleY: 0 })
     await loginContainer.start({ scaleX: 0, transition: { duration: 0.5 } })
-    await logoControl.start({ translateY: 150, scale: 1.33, transition: { duration: 0.5 } })
+    await logoControl.start({ translateY: 150, scale: 1.66, transition: { duration: 0.5 } })
     setIsLoading(true)
     await setTimeout(async () => {
       if(data.email != "1@1.1" || data.password != '1') {
