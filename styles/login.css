@@ -1,20 +1,11 @@
 
 .login_container {
-  --cutoffSize: 30px;
-
   background-color: var(--4);
   padding: 20px;
   width: clamp(270px, 20vw, 80vw);
 
-  clip-path: 
-      polygon(
-        0% var(--cutoffSize),
-        var(--cutoffSize) 0%,
-        100% 0%,
-        100% calc(100% - var(--cutoffSize)),
-        calc(100% - var(--cutoffSize)) 100%,
-        0% 100%
-      );
+  clip-path: var(--clipPath1)
+      
 }
   
 .login_form {
@@ -25,8 +16,6 @@
 }
 
 .login_item {
-  --cutoffSize: 15px;
-
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
@@ -36,15 +25,7 @@
   outline: none;
   font-family: var(--font);
 
-  clip-path: 
-      polygon(
-        0% var(--cutoffSize),
-        var(--cutoffSize) 0%,
-        100% 0%,
-        100% calc(100% - var(--cutoffSize)),
-        calc(100% - var(--cutoffSize)) 100%,
-        0% 100%
-      );
+  clip-path: var(--clipPath2)
 }
 
 .login_input {
@@ -59,6 +40,7 @@
 
 .login_input::placeholder {
   color: var(--4);
+  opacity: 0.7;
 }
 
 .login_input:focus {
@@ -72,6 +54,7 @@
   font-size: clamp(0.5rem, 1rem, 5rem);
   background-color: var(--0);
   color: var(--4);
+  cursor: pointer;
 
   transition-timing-function: ease;
   transition-duration: 0.25s;
@@ -90,4 +73,24 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.login_footer {
+  color: var(--0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_footer_action a {
+  text-decoration: none;
+  border: none;
+  margin: 10px;
+  font-size: clamp(0.5rem, 0.75rem, 4.5rem);
+  color: var(--1);
+}
+
+.login_footer_action a:hover {
+  border-bottom: 1px solid var(--5);
 }

@@ -1,23 +1,53 @@
 import Head from 'next/head'
 import { motion, useAnimation } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useForm } from "react-hook-form";
+import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Login = () => {
   const loginContainer = useAnimation();
   const loginElements = useAnimation();
   const logoControl = useAnimation();
 
+  const [isLoading, setIsLoading] = useState(false)
+
   const sequence = async () => {
     await loginContainer.start({ scaleX: 1, transition: { duration: 0.5 } })
     await loginContainer.start({ scaleY: 1 })
-    await loginElements.start({ opacity: 1, transition: { staggerChildren: 0.5, default: { duration: 0.25 } }})
+    await loginElements.start({ opacity: 1 })
     await logoControl.start({ opacity: 1, transition: { duration: 1 } })
   }
 
   useEffect(() => {
     sequence();
   }, []);
+
+  const router = useRouter();
+  const [logInSuccess, setLogInSuccess] = useState(true)
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const logIn = async (data) => {
+    await loginElements.start({ opacity: 0 })
+    await loginContainer.start({ scaleY: 0 })
+    await loginContainer.start({ scaleX: 0, transition: { duration: 0.5 } })
+    await logoControl.start({ translateY: 150, scale: 1.33, transition: { duration: 0.5 } })
+    setIsLoading(true)
+    await setTimeout(async () => {
+      if(data.email != "1@1.1" || data.password != '1') {
+        setIsLoading(false)
+        await logoControl.start({ translateY: 0, scale: 1, transition: { duration: 0.5 } })
+        await loginContainer.start({ scaleX: 1, transition: { duration: 0.5 } })
+        await loginContainer.start({ scaleY: 1 })
+        await loginElements.start({ opacity: 1 })
+        setLogInSuccess(false);
+      } else {
+        setIsLoading(false)
+        await logoControl.start({ opacity: 0, transition: { duration: 1 } })
+        router.push('/CharacterSheet')
+      }
+    }, 10000)
+  }
 
   return (
     <div className="index_container">
@@ -28,14 +58,34 @@ const Login = () => {
       </Head>
 
       <main className="index_main_container">
-        <motion.div id='static_logo' initial={{ opacity: 0 }} animate={logoControl}>
-          <Image src='/SWNLogoStaticAlt.svg' width={200} height={200}/>
+        <motion.div id='static_logo' initial={{ opacity: 0 }} exit={{ opacity: 0 }} animate={logoControl}>
+          {isLoading ?
+            <object type="image/svg+xml" data='/SWNLogoAnimatedCSS.svg' alt="Loading..." width={200} height={200}/>
+            :
+            <Image src='/SWNLogoStaticAlt.svg' width={200} height={200}/>
+          }
         </motion.div>
-        <motion.div className='login_container' initial={{ scaleX: 0, scaleY: 0.05 }} animate={loginContainer} transition={{ default: { duration: 0.25 } }}>
-          <motion.form className='login_form' initial={{ opacity: 0 }} animate={loginElements}>
-            <input className='login_item login_input' type='username' placeholder='username' />
-            <input className='login_item login_input' type='password' placeholder='password' />
+        <motion.div className='login_container' initial={{ scaleX: 0, scaleY: 0.05 }} animate={loginContainer} exit={{ scaleY: 0 }} transition={{ default: { duration: 0.25 } }}>
+          <motion.form className='login_form' onSubmit={handleSubmit(logIn)} initial={{ opacity: 0 }} animate={loginElements} exit={{ opacity: 0 }}>
+            {logInSuccess ? 
+              <div className='message_placeholder'></div>  
+              :
+              <motion.div className='error_message' initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}>
+                username or password incorrect
+              </motion.div>
+            }
+            <input className='login_item login_input' type='email' placeholder='email' {...register("email", { required: true })}/>
+            <input className='login_item login_input' type='password' placeholder='password' {...register("password", { required: true })}/>
             <button className='login_item logInbtn' type='submit'>Log In</button>
+            <div className='login_footer'>
+              <div className='login_footer_action'>
+                <Link href='/auth/ResetPassword'>Forgot Password?</Link>
+              </div>
+              |
+              <div className='login_footer_action'>
+                <Link href='/auth/CreateAccount'>Create Account</Link>
+              </div>
+            </div>
           </motion.form>
         </motion.div>
       </main>

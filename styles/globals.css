@@ -6,3 +6,17 @@ body {
   margin: 0;
   font-family: var(--font);
 }
+
+.error_message {
+  color: var(--5);
+  font-size: clamp(0.5rem, 0.85rem, 4.5rem);
+  height: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.message_placeholder {
+  height: 20px;
+  margin: 0;
+  padding: 0;
+}

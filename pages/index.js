@@ -1,18 +1,20 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import Spinner from '../react-components/Spinner'
+import { useRouter } from 'next/router';
 
 export default function Home() {
+  const router = useRouter();
 
   useEffect(() => {
-    setTimeout(() => {
-      window.location = '/auth/Login';
-    }, 5000)
+    setTimeout(async () => {
+      router.push('/auth/Login')
+    }, 4550)
   })
 
   return (
-    <motion.div className="index_container" initial={{opacity: 1}} exit={{opacity: 0}}>
+    <div className="index_container" >
       <Head>
         <title>Stars Without Number</title>
         <meta name="description" content="Stars Without Number" />
@@ -20,8 +22,10 @@ export default function Home() {
       </Head>
 
       <main className="index_main_container">
-        <Spinner />
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ default: { duration: 0.5 } }}>
+          <Spinner />
+        </motion.div>
       </main>
-    </motion.div>
+    </div>
   )
 }

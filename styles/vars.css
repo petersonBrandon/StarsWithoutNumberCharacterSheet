@@ -8,4 +8,25 @@
   --4: #ced7e0;
   --5: #ef5b5b;
   --font: 'Dosis', sans-serif;
+
+  --cutoffSize1: 30px;
+  --cutoffSize2: 15px;
+
+  --clipPath1: polygon(
+                  0% var(--cutoffSize1),
+                  var(--cutoffSize1) 0%,
+                  100% 0%,
+                  100% calc(100% - var(--cutoffSize1)),
+                  calc(100% - var(--cutoffSize1)) 100%,
+                  0% 100%
+                );
+  
+  --clipPath2: polygon(
+                  0% var(--cutoffSize2),
+                  var(--cutoffSize2) 0%,
+                  100% 0%,
+                  100% calc(100% - var(--cutoffSize2)),
+                  calc(100% - var(--cutoffSize2)) 100%,
+                  0% 100%
+                );
 }
