@@ -1,7 +1,7 @@
 import Head from 'next/head'
+import Image from 'next/image';
 import { useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion';
-import Spinner from '../react-components/Spinner'
 import { useRouter } from 'next/router';
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
 
       <main className="index_main_container">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ default: { duration: 0.5 } }}>
-          <Spinner />
+          <Image src='/SWNLogoAnimatedCSS.svg' alt="Loading..." width={300} height={300} responsive/>
         </motion.div>
       </main>
     </div>
