@@ -1,10 +1,29 @@
-@import './vars.css';
+@import "./vars.css";
 
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: var(--font);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background: url("/space.jpg") fixed;
+}
+
+object {
+  pointer-events: none;
+}
+
+p {
+  margin: 0;
 }
 
 .error_message {
@@ -19,4 +38,38 @@ body {
   height: 20px;
   margin: 0;
   padding: 0;
+}
+
+.cut_corner1 {
+  clip-path: var(--clipPath1);
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.cut_corner2 {
+  clip-path: var(--clipPath2);
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.cut_corner_topLeft {
+  clip-path: var(--clipPathLeftCut);
+  padding: 5px;
+  padding-left: 15px;
+}
+
+.cut_corner_bottomRight {
+  clip-path: var(--clipPathRightCut);
+  padding: 5px;
+  padding-right: 15px;
+}
+
+.darken_background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -9999;
 }

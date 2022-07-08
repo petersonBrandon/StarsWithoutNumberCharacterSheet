@@ -1,0 +1,601 @@
+.main_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--4);
+}
+
+.construction_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.construction_title {
+  font-size: clamp(0.5rem, 2rem, 4.5rem);
+}
+
+.construction_title_top {
+  margin: 10px;
+}
+
+.construction_title_bottom {
+  margin: 10px;
+  margin-bottom: 50px;
+}
+
+.character_container {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
+}
+
+#nav_bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100vw;
+  height: 150px;
+  position: fixed;
+  z-index: 100000;
+  font-size: clamp(0.5rem, 1.25rem, 5rem);
+}
+
+.nav_bar_endcap {
+  color: transparent;
+  background-color: var(--4);
+  height: 100%;
+  width: 0.2em;
+}
+
+.nav_bar_elements {
+  height: 30%;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav_item_container {
+  background-color: var(--1);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.nav_item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+
+  transition-timing-function: ease;
+  transition-duration: 0.5s;
+}
+
+.nav_item:hover {
+  background-color: var(--5);
+
+  transition-timing-function: ease;
+  transition-duration: 0.5s;
+}
+
+.nav_item_title{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.menu_icon {
+  cursor: pointer;
+}
+
+.column {
+  width: 100%;
+  height: 100%;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; */
+}
+
+.character_box {
+  margin: 10px;
+  font-size: var(--font-size1);
+}
+
+.horizontal_flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.horizontal_flex_between {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box_header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.box_header_full {
+  background-color: var(--1);
+  width: 100%;
+  text-align: center;
+  padding-right: 15px;
+}
+
+.box_header_left {
+  background-color: var(--1);
+  padding-right: 10px;
+  padding: 5px;
+  width: 40%;
+  text-align: center;
+}
+
+.box_header_right {
+  background-color: var(--4);
+  padding-left: 1px;
+  padding: 5px;
+  color: var(--1);
+  width: 100%;
+  height: 100%;
+}
+
+.character_input {
+  font-family: var(--font);
+  border: none;
+  outline: none;
+  width: 90%;
+  margin: 0;
+  padding: 0px;
+  margin-left: 5px;
+  background-color: var(--4);
+  color: var(--1);
+  font-size: var(--font-size1);
+}
+
+.character_input_colored {
+  font-family: var(--font);
+  border: none;
+  outline: none;
+  width: 90%;
+  margin: 0;
+  padding: 0px;
+  margin-left: 5px;
+  background-color: var(--1);
+  color: var(--4);
+  font-size: var(--font-size1);
+}
+
+.covered_input {
+  width: 70%;
+}
+
+.left_hex_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.attribute_hex_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.hex_label {
+  background-color: var(--1);
+  width: 7em;
+  text-align: center;
+}
+
+.hex_label_small {
+  background-color: var(--1);
+  width: 4em;
+  text-align: center;
+}
+
+.hex_box_header_item {
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+.hex_input {
+  font-family: var(--font);
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0px;
+  width: 50%;
+  font-size: clamp(0.5rem, 1.5rem, 5rem);
+  text-align: center;
+  background-color: var(--4);
+  color: var(--1);
+}
+
+.hex:before {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-bottom: 15px solid var(--4);
+  border-left: 24px solid transparent;
+  border-right: 23px solid transparent;
+  position: absolute;
+  top: -15px;
+}
+
+.hex {
+  width: 47px;
+  height: 25px;
+  background-color: var(--4);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hex:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  border-top: 15px solid var(--4);
+  border-left: 24px solid transparent;
+  border-right: 23px solid transparent;
+}
+
+.hex_input_colored {
+  font-family: var(--font);
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0px;
+  width: 50%;
+  font-size: clamp(0.5rem, 1.5rem, 5rem);
+  z-index: 1000;
+  text-align: center;
+  background-color: var(--2);
+  color: var(--4);
+}
+
+.hex_colored:before {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-bottom: 15px solid var(--2);
+  border-left: 24px solid transparent;
+  border-right: 23px solid transparent;
+  position: absolute;
+  top: -15px;
+}
+
+.hex_colored {
+  width: 47px;
+  height: 25px;
+  background-color: var(--2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hex_colored:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  border-top: 15px solid var(--2);
+  border-left: 24px solid transparent;
+  border-right: 23px solid transparent;
+}
+
+.hex_top_label {
+  font-size: clamp(0.5rem, 0.5rem, 5rem);
+  z-index: 1000;
+}
+
+.hex_offset {
+  transform: translate(-24px, 15px);
+}
+
+.hex_margin {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#weapons_header_left {
+  width: 70%;
+}
+
+#weapons_header_right {
+  width: 60%;
+}
+
+.weapon_row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.weapon_item_left {
+  background-color: var(--1);
+  padding-right: 10px;
+  width: 10%;
+  height: 100%;
+  text-align: center;
+}
+
+.weapon_item_mid_left {
+  width: 50%;
+  height: 100%;
+  background-color: var(--4);
+  padding: 5px;
+}
+
+.weapon_item_mid_right {
+  width: 30%;
+  height: 100%;
+  background-color: var(--4);
+  color: var(--1);
+  padding: 5px;
+}
+
+.weapon_item_right {
+  width: 23px;
+}
+
+.weapon_item_far_right {
+  transform: translate(0px, 15px);
+  width: 20%;
+  height: 100%;
+  background-color: var(--4);
+  color: var(--1);
+  padding: 5px;
+}
+
+.weapon_attack_bonus {
+  width: 80%;
+}
+
+.weapon_item_right_bottom {
+  width: 23px;
+  color: transparent;
+}
+
+.weapon_item_far_right_bottom {
+  width: 20%;
+  padding: 5px;
+  color: transparent;
+}
+
+.top_border_thick {
+  border-top: 5px solid var(--1);
+}
+
+.bottom_row_left {
+  width: 10%;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 10px;
+  background-color: var(--2);
+}
+
+.weapon_icon_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--1);
+  height: 25px;
+  width: 5%;
+}
+
+.weapon_icon {
+  background-color: var(--1);
+  color: var(--4);
+  height: 80%;
+  width: 80%;
+}
+
+.armor_item_mid {
+  width: 100%;
+  height: 100%;
+  background-color: var(--4);
+  padding: 5px;
+}
+
+.capability_row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.capability_left {
+  background-color: var(--1);
+  padding-right: 10px;
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.capability_right {
+  background-color: var(--4);
+  padding-left: 1px;
+  padding: 5px;
+  color: var(--1);
+  width: 40%;
+  height: 100%;
+}
+
+.transparent_text {
+  color: transparent;
+}
+
+.capability_input {
+  text-align: center;
+  margin: 0;
+}
+
+.capability_row_border {
+  border-bottom: 2px solid var(--2);
+}
+
+#money_section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.foci_input {
+  padding-left: 5px;
+}
+
+.standard_input {
+  padding-right: 5px;
+}
+
+.full_width {
+  width: 100%;
+}
+
+.ready_items_row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.ready_item {
+  width: 100%;
+  height: 100%;
+  background-color: var(--4);
+  padding: 5px;
+}
+
+.ready_item_mid_col {
+  border-right: 2px solid var(--2);
+}
+
+.ready_item_mid_row {
+  border-bottom: 2px solid var(--2);
+}
+
+#character_attributes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.hexBox_row {
+  width: 100%;
+  height: 100%;
+  background-color: var(--4);
+  padding: 5px;
+  color: var(--1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#saves_data_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: var(--4);
+  color: var(--1);
+  padding-left: 15px;
+}
+
+.save_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#attributes_container {
+  background-color: var(--4);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.attribute_row_right {
+  height: 100%;
+  transform: translate(15px, 0px);
+}
+
+.attribute_row_left {
+  height: 100%;
+  transform: translate(-15px, 0px);
+}
+
+.numbered_row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--1);
+}

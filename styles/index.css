@@ -1,5 +1,4 @@
-.index_container {
-  background-color: var(--0);
+.index_main_container {
   width: 100vw;
   height: 100vh;
   display: flex;

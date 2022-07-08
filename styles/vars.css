@@ -9,6 +9,8 @@
   --5: #ef5b5b;
   --font: 'Dosis', sans-serif;
 
+  --font-size1: clamp(0.5rem, 0.75rem, 5rem);
+
   --cutoffSize1: 30px;
   --cutoffSize2: 15px;
 
@@ -24,6 +26,22 @@
   --clipPath2: polygon(
                   0% var(--cutoffSize2),
                   var(--cutoffSize2) 0%,
+                  100% 0%,
+                  100% calc(100% - var(--cutoffSize2)),
+                  calc(100% - var(--cutoffSize2)) 100%,
+                  0% 100%
+                );
+
+  --clipPathLeftCut: polygon(
+                  0% var(--cutoffSize2),
+                  var(--cutoffSize2) 0%,
+                  100% 0%,
+                  100% 100%,
+                  0% 100%
+                );  
+                
+  --clipPathRightCut: polygon(
+                  0% 0%,
                   100% 0%,
                   100% calc(100% - var(--cutoffSize2)),
                   calc(100% - var(--cutoffSize2)) 100%,

@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import '../styles/index.css'
 import '../styles/login.css'
+import '../styles/characterSheet.css'
 import { AnimatePresence } from 'framer-motion'
 
 function MyApp({ Component, pageProps, router }) {
