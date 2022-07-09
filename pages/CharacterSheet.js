@@ -18,10 +18,6 @@ import { useRouter } from "next/router";
 const CharacterSheet = () => {
   const router = useRouter();
 
-  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-    router.push("/404");
-  }
-
   const sheetPage = {
     hidden: { scaleY: 0 },
     show: {
@@ -75,6 +71,7 @@ const CharacterSheet = () => {
             className="page"
             initial="hidden"
             animate="show"
+            exit="hidden"
             variants={sheetPage}
           >
             <motion.div
