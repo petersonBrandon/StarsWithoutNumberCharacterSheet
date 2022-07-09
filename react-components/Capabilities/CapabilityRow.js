@@ -22,9 +22,9 @@ const CapabilityRow = (props) => {
         <input
           className="character_input capability_input"
           type="text"
-          spellcheck="false"
-          autocomplete="off"
-          autocorrect="off"
+          spellCheck="false"
+          autoComplete="off"
+          autoCorrect="off"
         />
       </div>
       <div className="capability_left">{props.col2}</div>
@@ -32,9 +32,9 @@ const CapabilityRow = (props) => {
         <input
           className="character_input capability_input"
           type="text"
-          spellcheck="false"
-          autocomplete="off"
-          autocorrect="off"
+          spellCheck="false"
+          autoComplete="off"
+          autoCorrect="off"
         />
       </div>
       <div
@@ -56,9 +56,9 @@ const CapabilityRow = (props) => {
         <input
           className="character_input capability_input"
           type="text"
-          spellcheck="false"
-          autocomplete="off"
-          autocorrect="off"
+          spellCheck="false"
+          autoComplete="off"
+          autoCorrect="off"
         />
       </div>
     </div>

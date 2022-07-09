@@ -24,9 +24,9 @@ const StandardBox = (props) => {
             <input
               className="character_input standard_input"
               type="text"
-              spellcheck="false"
-              autocomplete="off"
-              autocorrect="off"
+              spellCheck="false"
+              autoComplete="off"
+              autoCorrect="off"
             />
             {runCallback(() => {
               const cols = [];
@@ -37,9 +37,9 @@ const StandardBox = (props) => {
                     <input
                       className="character_input foci_input"
                       type="text"
-                      spellcheck="false"
-                      autocomplete="off"
-                      autocorrect="off"
+                      spellCheck="false"
+                      autoComplete="off"
+                      autoCorrect="off"
                     />
                   </>
                 );

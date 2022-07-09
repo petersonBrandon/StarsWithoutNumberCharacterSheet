@@ -9,9 +9,9 @@ const MoneyItem = (props) => {
           <input
             className="character_input"
             type="text"
-            spellcheck="false"
-            autocomplete="off"
-            autocorrect="off"
+            spellCheck="false"
+            autoComplete="off"
+            autoCorrect="off"
           />
         </div>
       </div>

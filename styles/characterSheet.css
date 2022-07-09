@@ -261,6 +261,7 @@
   text-align: center;
   background-color: var(--4);
   color: var(--1);
+  z-index: 500;
 }
 
 .hex:before {

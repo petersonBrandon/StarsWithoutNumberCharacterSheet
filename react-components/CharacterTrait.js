@@ -1,6 +1,5 @@
-import React from "react";
-
 const CharacterTrait = (props) => {
+
   return (
     <div className="character_box">
       <div className="box_header">
@@ -9,9 +8,10 @@ const CharacterTrait = (props) => {
           <input
             className="character_input"
             type="text"
-            spellcheck="false"
-            autocomplete="off"
-            autocorrect="off"
+            spellCheck="false"
+            autoComplete="off"
+            autoCorrect="off"
+            {...props.register(props.title)}
           />
         </div>
       </div>

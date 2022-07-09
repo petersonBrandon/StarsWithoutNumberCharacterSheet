@@ -11,9 +11,9 @@ const WeaponItem = () => {
             <input
               className="character_input"
               type="text"
-              spellcheck="false"
-              autocomplete="off"
-              autocorrect="off"
+              spellCheck="false"
+              autoComplete="off"
+              autoCorrect="off"
             />
           </div>
           <div className="weapon_icon_container">
@@ -23,9 +23,9 @@ const WeaponItem = () => {
             <input
               className="character_input covered_input"
               type="text"
-              spellcheck="false"
-              autocomplete="off"
-              autocorrect="off"
+              spellCheck="false"
+              autoComplete="off"
+              autoCorrect="off"
             />
           </div>
           <div className="weapon_item_right">
@@ -33,9 +33,9 @@ const WeaponItem = () => {
               <input
                 className="hex_input_colored"
                 type="text"
-                spellcheck="false"
-                autocomplete="off"
-                autocorrect="off"
+                spellCheck="false"
+                autoComplete="off"
+                autoCorrect="off"
               />
             </div>
           </div>
@@ -44,9 +44,9 @@ const WeaponItem = () => {
               <input
                 className="character_input"
                 type="text"
-                spellcheck="false"
-                autocomplete="off"
-                autocorrect="off"
+                spellCheck="false"
+                autoComplete="off"
+                autoCorrect="off"
               />
             </div>
           </div>
@@ -57,9 +57,9 @@ const WeaponItem = () => {
             <input
               className="character_input"
               type="text"
-              spellcheck="false"
-              autocomplete="off"
-              autocorrect="off"
+              spellCheck="false"
+              autoComplete="off"
+              autoCorrect="off"
             />
           </div>
           <div className="weapon_icon_container top_border_thick">
@@ -69,9 +69,9 @@ const WeaponItem = () => {
             <input
               className="character_input covered_input"
               type="text"
-              spellcheck="false"
-              autocomplete="off"
-              autocorrect="off"
+              spellCheck="false"
+              autoComplete="off"
+              autoCorrect="off"
             />
           </div>
           <div className="weapon_item_right_bottom">Spacer</div>

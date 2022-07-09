@@ -10,9 +10,9 @@ const ArmorItem = () => {
             <input
               className="character_input"
               type="text"
-              spellcheck="false"
-              autocomplete="off"
-              autocorrect="off"
+              spellCheck="false"
+              autoComplete="off"
+              autoCorrect="off"
             />
           </div>
           <div className="weapon_item_right">
@@ -21,9 +21,9 @@ const ArmorItem = () => {
               <input
                 className="hex_input_colored"
                 type="text"
-                spellcheck="false"
-                autocomplete="off"
-                autocorrect="off"
+                spellCheck="false"
+                autoComplete="off"
+                autoCorrect="off"
               />
             </div>
           </div>
@@ -36,9 +36,9 @@ const ArmorItem = () => {
             <input
               className="character_input"
               type="text"
-              spellcheck="false"
-              autocomplete="off"
-              autocorrect="off"
+              spellCheck="false"
+              autoComplete="off"
+              autoCorrect="off"
             />
           </div>
           <div className="weapon_item_right_bottom">Spacer</div>

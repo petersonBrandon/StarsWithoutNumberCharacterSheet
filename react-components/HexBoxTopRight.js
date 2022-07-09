@@ -17,9 +17,9 @@ const HexBoxTopRight = (props) => {
             <input
               className="character_input foci_input"
               type="text"
-              spellcheck="false"
-              autocomplete="off"
-              autocorrect="off"
+              spellCheck="false"
+              autoComplete="off"
+              autoCorrect="off"
             />
           </div>
         </div>
@@ -39,9 +39,9 @@ const HexBoxTopRight = (props) => {
             <input
               className="hex_input_colored"
               type="text"
-              spellcheck="false"
-              autocomplete="off"
-              autocorrect="off"
+              spellCheck="false"
+              autoComplete="off"
+              autoCorrect="off"
             />
           </div>
         </div>

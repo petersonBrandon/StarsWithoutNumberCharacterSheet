@@ -7,54 +7,54 @@ const ReadyItemRow = (props) => {
         <input
           className="character_input"
           type="text"
-          spellcheck="false"
-          autocomplete="off"
-          autocorrect="off"
+          spellCheck="false"
+          autoComplete="off"
+          autoCorrect="off"
         />
       </div>
       <div className="ready_item ready_item_mid_col">
         <input
           className="character_input"
           type="text"
-          spellcheck="false"
-          autocomplete="off"
-          autocorrect="off"
+          spellCheck="false"
+          autoComplete="off"
+          autoCorrect="off"
         />
       </div>
       <div className="ready_item ready_item_mid_col">
         <input
           className="character_input"
           type="text"
-          spellcheck="false"
-          autocomplete="off"
-          autocorrect="off"
+          spellCheck="false"
+          autoComplete="off"
+          autoCorrect="off"
         />
       </div>
       <div className="ready_item ready_item_mid_col">
         <input
           className="character_input"
           type="text"
-          spellcheck="false"
-          autocomplete="off"
-          autocorrect="off"
+          spellCheck="false"
+          autoComplete="off"
+          autoCorrect="off"
         />
       </div>
       <div className="ready_item ready_item_mid_col">
         <input
           className="character_input"
           type="text"
-          spellcheck="false"
-          autocomplete="off"
-          autocorrect="off"
+          spellCheck="false"
+          autoComplete="off"
+          autoCorrect="off"
         />
       </div>
       <div className={props.lastRow ? "cut_corner_bottomRight ready_item" : "ready_item"}>
         <input
           className="character_input"
           type="text"
-          spellcheck="false"
-          autocomplete="off"
-          autocorrect="off"
+          spellCheck="false"
+          autoComplete="off"
+          autoCorrect="off"
         />
       </div>
     </div>

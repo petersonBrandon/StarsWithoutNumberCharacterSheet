@@ -12,9 +12,9 @@ const AttributeRightOffset = (props) => {
           <input
             className="character_input_colored"
             type="text"
-            spellcheck="false"
-            autocomplete="off"
-            autocorrect="off"
+            spellCheck="false"
+            autoComplete="off"
+            autoCorrect="off"
           />
         </div>
       </div>

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
 import CharacterTrait from "../react-components/CharacterTrait";
 import WeaponItem from "../react-components/WeaponItem";
 import ArmorItem from "../react-components/ArmorItem";
@@ -36,6 +37,16 @@ const CharacterSheet = () => {
     },
   };
 
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const saveData = async (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="container">
       <motion.div
@@ -57,13 +68,17 @@ const CharacterSheet = () => {
 
       <main className="main_container">
         <NavMenu />
-        <motion.div
+        <motion.form
           className="character_container"
+          onSubmit={handleSubmit(saveData)}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ default: { duration: 0.5 } }}
         >
+          <button className="login_item logInbtn" type="submit">
+            SAVE
+          </button>
           <motion.section
             className="page"
             initial="hidden"
@@ -77,26 +92,34 @@ const CharacterSheet = () => {
               variants={sheetColumn}
             >
               <div id="character_traits" className="full_width">
-                <CharacterTrait title="Name" />
-                <CharacterTrait title="Background" />
-                <CharacterTrait title="Class" />
+                <CharacterTrait title="Name" register={register}/>
+                <CharacterTrait title="Background" register={register}/>
+                <CharacterTrait title="Class" register={register}/>
                 <div className="character_box horizontal_flex">
                   <div className="left_hex_item">
                     <div className="cut_corner_topLeft hex_label">Level</div>
                     <div className="hex">
-                      <input className="hex_input" type="text" />
+                      <input
+                        className="hex_input"
+                        type="text"
+                        {...register("level")}
+                      />
                     </div>
                   </div>
                   <div className="left_hex_item">
                     <div className="cut_corner_topLeft hex_label">XP</div>
                     <div className="hex">
-                      <input className="hex_input" type="text" />
+                      <input
+                        className="hex_input"
+                        type="text"
+                        {...register("xp")}
+                      />
                     </div>
                   </div>
                 </div>
-                <CharacterTrait title="Homeworld" />
-                <CharacterTrait title="Employer" />
-                <CharacterTrait title="Species" />
+                <CharacterTrait title="Homeworld" register={register}/>
+                <CharacterTrait title="Employer" register={register}/>
+                <CharacterTrait title="Species" register={register}/>
               </div>
               <div id="character_weapons" className="full_width">
                 <div className="character_box">
@@ -324,7 +347,7 @@ const CharacterSheet = () => {
               </div>
             </motion.div>
           </motion.section>
-        </motion.div>
+        </motion.form>
       </main>
     </div>
   );
