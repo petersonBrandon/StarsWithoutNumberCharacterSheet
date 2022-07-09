@@ -14,6 +14,10 @@
   height: 100vh;
 }
 
+.mobile_block {
+  width: 80vw;
+}
+
 .construction_title {
   font-size: clamp(0.5rem, 2rem, 4.5rem);
   margin: 10px;

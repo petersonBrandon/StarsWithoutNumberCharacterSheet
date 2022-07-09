@@ -23,7 +23,7 @@ const MobileBlock = () => {
       </Head>
       <main className="main_container">
         <motion.div
-          className="construction_page"
+          className="construction_page mobile_block"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
