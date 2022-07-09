@@ -7,8 +7,6 @@ import { useRouter } from "next/router";
 import { isMobile } from "react-device-detect";
 
 function MyApp({ Component, pageProps, router }) {
-  const router = useRouter();
-
   if(isMobile) {
     router.push("/MobileBlock");
   }
