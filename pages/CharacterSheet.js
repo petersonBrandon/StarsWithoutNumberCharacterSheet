@@ -13,16 +13,8 @@ import AttributeRightOffset from "../react-components/Attributes/AttributeRightO
 import AttributeLeftOffset from "../react-components/Attributes/AttributeLeftOffset";
 import StandardBox from "../react-components/StandardBox";
 import NavMenu from "../react-components/NavMenu";
-import { useRouter } from "next/router";
-import { isMobile } from "react-device-detect";
 
 const CharacterSheet = () => {
-  const router = useRouter();
-
-  if(isMobile) {
-    router.push("/404");
-  }
-
   const sheetPage = {
     hidden: { scaleY: 0 },
     show: {
