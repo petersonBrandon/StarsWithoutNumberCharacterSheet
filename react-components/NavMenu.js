@@ -11,6 +11,11 @@ const NavMenu = () => {
   const navItem = useAnimation();
   const router = useRouter();
 
+  // window.onscroll = (e) => {
+  //   navAnimCloseFast();
+  //   setOpen(false);
+  // };
+
   const navAnimOpen = async () => {
     navItemContainerControl.start({ scaleY: 1 });
     navEndControlLeft.start({ scaleY: 1 });
@@ -27,6 +32,34 @@ const NavMenu = () => {
     navItemContainerControl.start({ scaleY: 0 });
     navEndControlLeft.start({ scaleY: 0 });
     await navEndControlRight.start({ scaleY: 0 });
+  };
+
+  const navAnimCloseFast = async () => {
+    await navItem.start({
+      opacity: 0,
+      transition: { default: { duration: DURATION_FAST } },
+    });
+    navEndControlLeft.start({
+      translateX: 916,
+      transition: { default: { duration: DURATION_FAST } },
+    });
+    await navItemContainerControl.start({
+      scaleX: 0,
+      translateX: 458,
+      transition: { default: { duration: DURATION_FAST } },
+    });
+    navItemContainerControl.start({
+      scaleY: 0,
+      transition: { default: { duration: DURATION_FAST } },
+    });
+    navEndControlLeft.start({
+      scaleY: 0,
+      transition: { default: { duration: DURATION_FAST } },
+    });
+    await navEndControlRight.start({
+      scaleY: 0,
+      transition: { default: { duration: DURATION_FAST } },
+    });
   };
 
   const logOut = () => {
@@ -48,6 +81,7 @@ const NavMenu = () => {
   };
 
   const DURATION = 0.25;
+  const DURATION_FAST = 0.15;
 
   return (
     <div id="nav_bar">
@@ -261,7 +295,7 @@ const NavMenu = () => {
             <div
               onClick={() => {
                 setOpen(true);
-                setIsInitial(false)
+                setIsInitial(false);
                 navAnimOpen();
               }}
               className="menu_icon"

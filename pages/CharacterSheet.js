@@ -13,8 +13,14 @@ import AttributeRightOffset from "../react-components/Attributes/AttributeRightO
 import AttributeLeftOffset from "../react-components/Attributes/AttributeLeftOffset";
 import StandardBox from "../react-components/StandardBox";
 import NavMenu from "../react-components/NavMenu";
+import { useRouter } from "next/router";
 
 const CharacterSheet = () => {
+  const router = useRouter();
+
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    router.push("/404");
+  }
 
   const sheetPage = {
     hidden: { scaleY: 0 },
@@ -263,7 +269,11 @@ const CharacterSheet = () => {
             animate="show"
             variants={sheetPage}
           >
-            <div id="page2_col1" className="column">
+            <motion.div
+              id="page2_col1"
+              className="column"
+              variants={sheetColumn}
+            >
               <div id="character_equipment">
                 <StandardBox
                   title="Stowed Equipment (Backpack)"
@@ -286,8 +296,12 @@ const CharacterSheet = () => {
                   columns={1}
                 />
               </div>
-            </div>
-            <div id="page2_col2" className="column">
+            </motion.div>
+            <motion.div
+              id="page2_col2"
+              className="column"
+              variants={sheetColumn}
+            >
               <div id="character_other1">
                 <StandardBox title="Notes to Remember" rows={9} columns={1} />
                 <StandardBox
@@ -297,8 +311,12 @@ const CharacterSheet = () => {
                 />
                 <StandardBox title="Starship Details" rows={12} columns={1} />
               </div>
-            </div>
-            <div id="page2_col3" className="column">
+            </motion.div>
+            <motion.div
+              id="page2_col3"
+              className="column"
+              variants={sheetColumn}
+            >
               <div id="character_other2">
                 <StandardBox
                   title="Noteworth Achievements"
@@ -310,7 +328,7 @@ const CharacterSheet = () => {
                 <StandardBox title="Languages Known" rows={3} columns={1} />
                 <StandardBox title="Current Goals" rows={3} columns={1} />
               </div>
-            </div>
+            </motion.div>
           </motion.section>
         </motion.div>
       </main>

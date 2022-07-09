@@ -16,14 +16,10 @@
 
 .construction_title {
   font-size: clamp(0.5rem, 2rem, 4.5rem);
-}
-
-.construction_title_top {
   margin: 10px;
 }
 
 .construction_title_bottom {
-  margin: 10px;
   margin-bottom: 50px;
 }
 

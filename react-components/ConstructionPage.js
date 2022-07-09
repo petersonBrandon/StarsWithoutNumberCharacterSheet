@@ -12,7 +12,7 @@ const ConstructionPage = () => {
     >
       <p className="construction_title">This page is not yet ready.</p>
       <p className="construction_title construction_title_bottom">Sorry for the inconvenience.</p>
-      <Image src="/astronaut.png" width={150} height={150} responsive />
+      <Image src="/astronaut.png" width={125} height={125} responsive />
     </motion.div>
   );
 };
