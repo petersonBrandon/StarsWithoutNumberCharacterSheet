@@ -31,7 +31,7 @@ const MobileBlock = () => {
         >
           <p className="construction_title">Mobile broswers not supported</p>
           <p className="construction_title construction_title_bottom">
-            Please use a desktop/laptop.
+            Please use a desktop/laptop
           </p>
           <Image src="/astronaut.png" width={125} height={125} responsive />
         </motion.div>
