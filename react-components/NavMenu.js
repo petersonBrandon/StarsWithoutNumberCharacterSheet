@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 const NavMenu = () => {
@@ -11,12 +11,21 @@ const NavMenu = () => {
   const navItem = useAnimation();
   const router = useRouter();
 
-  // window.onscroll = (e) => {
-  //   navAnimCloseFast();
-  //   setOpen(false);
-  // };
+  let scrollCount = 0;
+  useEffect(() => {
+    const onScroll = () => {
+      if(scrollCount == 0) {
+        navAnimCloseFast();
+        setOpen(false);
+        scrollCount++
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+  });
 
   const navAnimOpen = async () => {
+    scrollCount = 0;
     navItemContainerControl.start({ scaleY: 1 });
     navEndControlLeft.start({ scaleY: 1 });
     await navEndControlRight.start({ scaleY: 1 });
@@ -27,8 +36,8 @@ const NavMenu = () => {
 
   const navAnimClose = async () => {
     await navItem.start({ opacity: 0 });
-    navEndControlLeft.start({ translateX: 916 });
-    await navItemContainerControl.start({ scaleX: 0, translateX: 458 });
+    navEndControlLeft.start({ translateX: 856 });
+    await navItemContainerControl.start({ scaleX: 0, translateX: 428 });
     navItemContainerControl.start({ scaleY: 0 });
     navEndControlLeft.start({ scaleY: 0 });
     await navEndControlRight.start({ scaleY: 0 });
@@ -40,12 +49,12 @@ const NavMenu = () => {
       transition: { default: { duration: DURATION_FAST } },
     });
     navEndControlLeft.start({
-      translateX: 916,
+      translateX: 856,
       transition: { default: { duration: DURATION_FAST } },
     });
     await navItemContainerControl.start({
       scaleX: 0,
-      translateX: 458,
+      translateX: 428,
       transition: { default: { duration: DURATION_FAST } },
     });
     navItemContainerControl.start({
@@ -60,6 +69,7 @@ const NavMenu = () => {
       scaleY: 0,
       transition: { default: { duration: DURATION_FAST } },
     });
+    scrollCount = 0;
   };
 
   const logOut = () => {
@@ -81,7 +91,7 @@ const NavMenu = () => {
   };
 
   const DURATION = 0.25;
-  const DURATION_FAST = 0.15;
+  const DURATION_FAST = 0.1;
 
   return (
     <div id="nav_bar">
@@ -194,7 +204,7 @@ const NavMenu = () => {
           <div className="nav_bar_elements">
             <motion.div
               className="cut_corner_topLeft nav_bar_endcap"
-              initial={{ scaleY: 0, translateX: 916 }}
+              initial={{ scaleY: 0, translateX: 856 }}
               animate={navEndControlLeft}
               exit={{ scaleY: 0 }}
               transition={{ default: { duration: DURATION } }}
@@ -203,7 +213,7 @@ const NavMenu = () => {
             </motion.div>
             <motion.div
               className="nav_item_container"
-              initial={{ scaleX: 0, scaleY: 0, translateX: 458 }}
+              initial={{ scaleX: 0, scaleY: 0, translateX: 428 }}
               animate={navItemContainerControl}
               exit={{ scaleX: 0, scaleY: 0 }}
               transition={{ default: { duration: DURATION } }}
