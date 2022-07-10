@@ -1,75 +1,87 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { BiHomeAlt, BiExit } from "react-icons/bi";
+import { HiOutlineUserGroup } from "react-icons/hi";
+import { IoSettingsOutline } from "react-icons/io5";
 
 const NavMenu = () => {
   const [open, setOpen] = useState(false);
   const [isInitial, setIsInitial] = useState(true);
-  const navEndControlLeft = useAnimation();
-  const navEndControlRight = useAnimation();
-  const navItemContainerControl = useAnimation();
-  const navItem = useAnimation();
+  const navEndControlTop = useAnimation();
+  const navEndControlBottom = useAnimation();
+  const navItemContainerControlSide = useAnimation();
+  const navItemSide = useAnimation();
   const router = useRouter();
 
   let scrollCount = 0;
   useEffect(() => {
-    const onScroll = () => {
-      if(scrollCount == 0) {
-        navAnimCloseFast();
+    const onScroll = async () => {
+      if (scrollCount == 0) {
+        scrollCount++;
+        await navAnimCloseFastSide();
         setOpen(false);
-        scrollCount++
       }
     };
 
     window.addEventListener("scroll", onScroll);
+    window.onkeydown = async (e) => {
+      if (scrollCount == 0 && e.keyCode === 40) {
+        scrollCount++;
+        await navAnimCloseFastSide();
+        setOpen(false);
+      }
+    };
   });
 
-  const navAnimOpen = async () => {
+  const navAnimOpenSide = async () => {
+    console.log("OPEN SIDE");
     scrollCount = 0;
-    navItemContainerControl.start({ scaleY: 1 });
-    navEndControlLeft.start({ scaleY: 1 });
-    await navEndControlRight.start({ scaleY: 1 });
-    navEndControlLeft.start({ translateX: 0 });
-    await navItemContainerControl.start({ scaleX: 1, translateX: 0 });
-    await navItem.start({ opacity: 1 });
+    navItemContainerControlSide.start({ scaleX: 1, transition: { delay: 0.25 } });
+    navEndControlBottom.start({ scaleX: 1, transition: { delay: 0.25 } });
+    await navEndControlTop.start({ scaleX: 1, transition: { delay: 0.25 } });
+    navEndControlBottom.start({ translateY: 0 });
+    await navItemContainerControlSide.start({ scaleY: 1, translateY: 0 });
+    await navItemSide.start({ opacity: 1 });
   };
 
-  const navAnimClose = async () => {
-    await navItem.start({ opacity: 0 });
-    navEndControlLeft.start({ translateX: 856 });
-    await navItemContainerControl.start({ scaleX: 0, translateX: 428 });
-    navItemContainerControl.start({ scaleY: 0 });
-    navEndControlLeft.start({ scaleY: 0 });
-    await navEndControlRight.start({ scaleY: 0 });
+  const navAnimCloseSide = async () => {
+    console.log("CLOSE SIDE");
+    await navItemSide.start({ opacity: 0 });
+    navEndControlBottom.start({ translateY: -472 });
+    await navItemContainerControlSide.start({ scaleY: 0, translateY: -236 });
+    navItemContainerControlSide.start({ scaleX: 0 });
+    navEndControlBottom.start({ scaleX: 0 });
+    await navEndControlTop.start({ scaleX: 0 });
   };
 
-  const navAnimCloseFast = async () => {
-    await navItem.start({
+  const navAnimCloseFastSide = async () => {
+    console.log("CLOSE SIDE FAST");
+    await navItemSide.start({
       opacity: 0,
       transition: { default: { duration: DURATION_FAST } },
     });
-    navEndControlLeft.start({
-      translateX: 856,
+    navEndControlBottom.start({
+      translateY: -472,
       transition: { default: { duration: DURATION_FAST } },
     });
-    await navItemContainerControl.start({
+    await navItemContainerControlSide.start({
+      scaleY: 0,
+      translateY: -236,
+      transition: { default: { duration: DURATION_FAST } },
+    });
+    navItemContainerControlSide.start({
       scaleX: 0,
-      translateX: 428,
       transition: { default: { duration: DURATION_FAST } },
     });
-    navItemContainerControl.start({
-      scaleY: 0,
+    navEndControlBottom.start({
+      scaleX: 0,
       transition: { default: { duration: DURATION_FAST } },
     });
-    navEndControlLeft.start({
-      scaleY: 0,
+    await navEndControlTop.start({
+      scaleX: 0,
       transition: { default: { duration: DURATION_FAST } },
     });
-    await navEndControlRight.start({
-      scaleY: 0,
-      transition: { default: { duration: DURATION_FAST } },
-    });
-    scrollCount = 0;
   };
 
   const logOut = () => {
@@ -94,250 +106,155 @@ const NavMenu = () => {
   const DURATION_FAST = 0.1;
 
   return (
-    <div id="nav_bar">
-      {open ? (
-        <>
-          <div className="nav_bar_elements">
-            <motion.div
-              className="cut_corner_topLeft nav_bar_endcap"
-              animate={navEndControlLeft}
-              transition={{ default: { duration: DURATION } }}
-            >
-              !
-            </motion.div>
-            <motion.div
-              className="nav_item_container"
-              animate={navItemContainerControl}
-              transition={{ default: { duration: DURATION } }}
-            >
-              <motion.div
-                className="nav_item"
-                animate={navItem}
-                transition={{ default: { duration: DURATION } }}
-              >
-                <div
-                  className="nav_item_title pointer"
-                  onClick={async () => {
-                    setOpen(false);
-                    await navAnimClose();
-                    navigateTo("home");
-                  }}
-                >
-                  Home
-                </div>
-              </motion.div>
-              <motion.div
-                className="nav_item"
-                animate={navItem}
-                transition={{ default: { duration: DURATION } }}
-              >
-                <div
-                  className="nav_item_title pointer"
-                  onClick={async () => {
-                    setOpen(false);
-                    await navAnimClose();
-                    navigateTo("party");
-                  }}
-                >
-                  Party
-                </div>
-              </motion.div>
-              <motion.div
-                className="nav_item"
-                animate={navItem}
-                transition={{ default: { duration: DURATION } }}
-              >
-                <div
-                  className="nav_item_title pointer"
-                  onClick={async () => {
-                    setOpen(false);
-                    await navAnimClose();
-                    navigateTo("settings");
-                  }}
-                >
-                  Settings
-                </div>
-              </motion.div>
-              <motion.div
-                className="nav_item"
-                animate={navItem}
-                transition={{ default: { duration: DURATION } }}
-              >
-                <div
-                  className="nav_item_title pointer"
-                  onClick={async () => {
-                    setOpen(false);
-                    await navAnimClose();
-                    logOut();
-                  }}
-                >
-                  Log out
-                </div>
-              </motion.div>
-            </motion.div>
-            <motion.div
-              className="cut_corner_bottomRight nav_bar_endcap"
-              animate={navEndControlRight}
-              transition={{ default: { duration: DURATION } }}
-            >
-              !
-            </motion.div>
-          </div>
+    <>
+      <div id="nav_bar_side">
+        {isInitial ? (
           <div
             onClick={() => {
-              setOpen(false);
-              navAnimClose();
+              setOpen(true);
+              setIsInitial(false);
+              navAnimOpenSide();
             }}
             className="menu_icon"
           >
             <object
               type="image/svg+xml"
-              data="/SWNLogoAnimatedCSSOUT.svg"
+              data="/SWNLogoStaticAlt.svg"
               alt="open"
               width={150}
               height={150}
             />
           </div>
-        </>
-      ) : (
-        <>
-          <div className="nav_bar_elements">
-            <motion.div
-              className="cut_corner_topLeft nav_bar_endcap"
-              initial={{ scaleY: 0, translateX: 856 }}
-              animate={navEndControlLeft}
-              exit={{ scaleY: 0 }}
-              transition={{ default: { duration: DURATION } }}
-            >
-              !
-            </motion.div>
-            <motion.div
-              className="nav_item_container"
-              initial={{ scaleX: 0, scaleY: 0, translateX: 428 }}
-              animate={navItemContainerControl}
-              exit={{ scaleX: 0, scaleY: 0 }}
-              transition={{ default: { duration: DURATION } }}
-            >
-              <motion.div
-                className="nav_item"
-                initial={{ opacity: 0 }}
-                animate={navItem}
-                exit={{ opacity: 0 }}
-                transition={{ default: { duration: DURATION } }}
-              >
-                <div
-                  className="nav_item_title pointer"
-                  onClick={async () => {
-                    setOpen(false);
-                    await navAnimClose();
-                    navigateTo("home");
-                  }}
-                >
-                  Home
-                </div>
-              </motion.div>
-              <motion.div
-                className="nav_item"
-                initial={{ opacity: 0 }}
-                animate={navItem}
-                exit={{ opacity: 0 }}
-                transition={{ default: { duration: DURATION } }}
-              >
-                <div
-                  className="nav_item_title pointer"
-                  onClick={async () => {
-                    setOpen(false);
-                    await navAnimClose();
-                    navigateTo("party");
-                  }}
-                >
-                  Party
-                </div>
-              </motion.div>
-              <motion.div
-                className="nav_item"
-                initial={{ opacity: 0 }}
-                animate={navItem}
-                exit={{ opacity: 0 }}
-                transition={{ default: { duration: DURATION } }}
-              >
-                <div
-                  className="nav_item_title pointer"
-                  onClick={async () => {
-                    setOpen(false);
-                    await navAnimClose();
-                    navigateTo("settings");
-                  }}
-                >
-                  Settings
-                </div>
-              </motion.div>
-              <motion.div
-                className="nav_item"
-                initial={{ opacity: 0 }}
-                animate={navItem}
-                exit={{ opacity: 0 }}
-                transition={{ default: { duration: DURATION } }}
-              >
-                <div
-                  className="nav_item_title pointer"
-                  onClick={async () => {
-                    setOpen(false);
-                    await navAnimClose();
-                    logOut();
-                  }}
-                >
-                  Log out
-                </div>
-              </motion.div>
-            </motion.div>
-            <motion.div
-              className="cut_corner_bottomRight nav_bar_endcap"
-              initial={{ scaleY: 0 }}
-              animate={navEndControlRight}
-              exit={{ scaleY: 0 }}
-              transition={{ default: { duration: DURATION } }}
-            >
-              !
-            </motion.div>
+        ) : (
+          <div
+            onClick={async () => {
+              let newOpen = !open;
+              if (newOpen) setOpen(true);
+              else setOpen(false);
+              if (newOpen) await navAnimOpenSide();
+              else await navAnimCloseSide();
+            }}
+            className="menu_icon"
+          >
+            <object
+              type="image/svg+xml"
+              data={
+                open
+                  ? "/SWNLogoAnimatedCSSOUT.svg"
+                  : "/SWNLogoAnimatedCSSIN.svg"
+              }
+              alt="open"
+              width={150}
+              height={150}
+            />
           </div>
-          {isInitial ? (
-            <div
-              onClick={() => {
-                setOpen(true);
-                setIsInitial(false);
-                navAnimOpen();
-              }}
-              className="menu_icon"
+        )}
+        <div className="nav_bar_elements_side">
+          <motion.div
+            className="cut_corner_topLeft nav_bar_endcap_side"
+            animate={navEndControlTop}
+            initial={{ scaleX: 0 }}
+            exit={{ scaleX: 0 }}
+            transition={{ default: { duration: DURATION } }}
+          >
+            !
+          </motion.div>
+          <motion.div
+            className="nav_item_container_side"
+            animate={navItemContainerControlSide}
+            transition={{ default: { duration: DURATION } }}
+            initial={{ scaleY: 0, translateY: -236 }}
+            exit={{ scaleY: 0, translateY: 0 }}
+          >
+            <motion.div
+              className="nav_item_side"
+              animate={navItemSide}
+              initial={{ opacity: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ default: { duration: DURATION } }}
             >
-              <object
-                type="image/svg+xml"
-                data="/SWNLogoStaticAlt.svg"
-                alt="open"
-                width={150}
-                height={150}
-              />
-            </div>
-          ) : (
-            <div
-              onClick={() => {
-                setOpen(true);
-                navAnimOpen();
-              }}
-              className="menu_icon"
+              <div
+                className="nav_item_title pointer"
+                onClick={async () => {
+                  if (open) await navAnimOpenSide();
+                  else await navAnimCloseSide();
+                  setOpen(!open);
+                  navigateTo("home");
+                }}
+              >
+                <BiHomeAlt className="nav_icon" />
+              </div>
+            </motion.div>
+            <motion.div
+              className="nav_item_side"
+              animate={navItemSide}
+              initial={{ opacity: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ default: { duration: DURATION } }}
             >
-              <object
-                type="image/svg+xml"
-                data="/SWNLogoAnimatedCSSIN.svg"
-                alt="open"
-                width={150}
-                height={150}
-              />
-            </div>
-          )}
-        </>
-      )}
-    </div>
+              <div
+                className="nav_item_title pointer"
+                onClick={async () => {
+                  if (open) await navAnimOpenSide();
+                  else await navAnimCloseSide();
+                  setOpen(!open);
+                  navigateTo("party");
+                }}
+              >
+                <HiOutlineUserGroup className="nav_icon" />
+              </div>
+            </motion.div>
+            <motion.div
+              className="nav_item_side"
+              animate={navItemSide}
+              initial={{ opacity: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ default: { duration: DURATION } }}
+            >
+              <div
+                className="nav_item_title pointer"
+                onClick={async () => {
+                  if (open) await navAnimOpenSide();
+                  else await navAnimCloseSide();
+                  setOpen(!open);
+                  navigateTo("settings");
+                }}
+              >
+                <IoSettingsOutline className="nav_icon" />
+              </div>
+            </motion.div>
+            <motion.div
+              className="nav_item_side"
+              animate={navItemSide}
+              initial={{ opacity: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ default: { duration: DURATION } }}
+            >
+              <div
+                className="nav_item_title pointer"
+                onClick={async () => {
+                  if (open) await navAnimOpenSide();
+                  else await navAnimCloseSide();
+                  setOpen(!open);
+                  logOut();
+                }}
+              >
+                <BiExit className="nav_icon" />
+              </div>
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className="cut_corner_bottomRight nav_bar_endcap_side"
+            animate={navEndControlBottom}
+            initial={{ scaleX: 0, translateY: -472 }}
+            exit={{ scaleX: 0, translateY: 0 }}
+            transition={{ default: { duration: DURATION } }}
+          >
+            !
+          </motion.div>
+        </div>
+      </div>
+    </>
   );
 };
 
