@@ -92,9 +92,9 @@ const CharacterSheet = () => {
               variants={sheetColumn}
             >
               <div id="character_traits" className="full_width">
-                <CharacterTrait title="Name" register={register}/>
-                <CharacterTrait title="Background" register={register}/>
-                <CharacterTrait title="Class" register={register}/>
+                <CharacterTrait title="Name" register={register} />
+                <CharacterTrait title="Background" register={register} />
+                <CharacterTrait title="Class" register={register} />
                 <div className="character_box horizontal_flex">
                   <div className="left_hex_item">
                     <div className="cut_corner_topLeft hex_label">Level</div>
@@ -117,9 +117,9 @@ const CharacterSheet = () => {
                     </div>
                   </div>
                 </div>
-                <CharacterTrait title="Homeworld" register={register}/>
-                <CharacterTrait title="Employer" register={register}/>
-                <CharacterTrait title="Species" register={register}/>
+                <CharacterTrait title="Homeworld" register={register} />
+                <CharacterTrait title="Employer" register={register} />
+                <CharacterTrait title="Species" register={register} />
               </div>
               <div id="character_weapons" className="full_width">
                 <div className="character_box">
@@ -136,11 +136,11 @@ const CharacterSheet = () => {
                     </div>
                   </div>
                 </div>
-                <WeaponItem />
-                <WeaponItem />
-                <WeaponItem />
-                <WeaponItem />
-                <WeaponItem />
+                <WeaponItem register={register} indexName="WI_1" />
+                <WeaponItem register={register} indexName="WI_2" />
+                <WeaponItem register={register} indexName="WI_3" />
+                <WeaponItem register={register} indexName="WI_4" />
+                <WeaponItem register={register} indexName="WI_5" />
               </div>
               <div id="character_armor" className="full_width">
                 <div className="character_box">
@@ -150,9 +150,9 @@ const CharacterSheet = () => {
                     </div>
                   </div>
                 </div>
-                <ArmorItem />
-                <ArmorItem />
-                <ArmorItem />
+                <ArmorItem register={register} indexName="AI_1" />
+                <ArmorItem register={register} indexName="AI_2" />
+                <ArmorItem register={register} indexName="AI_3" />
               </div>
             </motion.div>
             <motion.div
@@ -161,14 +161,18 @@ const CharacterSheet = () => {
               variants={sheetColumn}
             >
               <div id="character_capabilities" className="full_width">
-                <CapabilitiesTable />
+                <CapabilitiesTable register={register} />
                 <div className="character_box horizontal_flex">
                   <div className="left_hex_item">
                     <div className="cut_corner_topLeft hex_label">
                       Basic Atk Bonus
                     </div>
                     <div className="hex">
-                      <input className="hex_input" type="text" />
+                      <input
+                        className="hex_input"
+                        type="text"
+                        {...register("atkBonus")}
+                      />
                     </div>
                   </div>
                   <div className="left_hex_item">
@@ -176,7 +180,11 @@ const CharacterSheet = () => {
                       Skill Points
                     </div>
                     <div className="hex">
-                      <input className="hex_input" type="text" />
+                      <input
+                        className="hex_input"
+                        type="text"
+                        {...register("skillPoints")}
+                      />
                     </div>
                   </div>
                 </div>
@@ -189,12 +197,12 @@ const CharacterSheet = () => {
                     </div>
                   </div>
                 </div>
-                <FociItem />
-                <FociItem />
-                <FociItem />
-                <FociItem />
-                <FociItem />
-                <FociItem />
+                <FociItem register={register} indexName="FI_1" />
+                <FociItem register={register} indexName="FI_2" />
+                <FociItem register={register} indexName="FI_3" />
+                <FociItem register={register} indexName="FI_4" />
+                <FociItem register={register} indexName="FI_5" />
+                <FociItem register={register} indexName="FI_6" />
               </div>
               <div id="character_items" className="full_width">
                 <div className="character_box">
@@ -203,12 +211,20 @@ const CharacterSheet = () => {
                       <p id="weapons_header_left">Readied Items</p>
                     </div>
                   </div>
-                  <ReadyItemRow lastRow={false} />
-                  <ReadyItemRow lastRow={true} />
+                  <ReadyItemRow
+                    lastRow={false}
+                    register={register}
+                    indexName="RIRow_1"
+                  />
+                  <ReadyItemRow
+                    lastRow={true}
+                    register={register}
+                    indexName="RIRow_2"
+                  />
                 </div>
                 <div id="money_section">
-                  <MoneyItem title="Credits" />
-                  <MoneyItem title="Debts" />
+                  <MoneyItem title="Credits" register={register} />
+                  <MoneyItem title="Debts" register={register} />
                 </div>
               </div>
             </motion.div>
@@ -223,11 +239,13 @@ const CharacterSheet = () => {
                     title="Hitpoints/Conditions"
                     hexLabel="Max:"
                     rows={5}
+                    register={register}
                   />
                   <HexBoxTopRight
                     title="System Strain"
                     hexLabel="Permanent:"
                     rows={3}
+                    register={register}
                   />
                   <div className="character_box">
                     <div className="box_header">
@@ -239,9 +257,9 @@ const CharacterSheet = () => {
                       id="saves_data_container"
                       className="cut_corner_bottomRight"
                     >
-                      <SaveHexItem title="Pysical" />
-                      <SaveHexItem title="Evasion" />
-                      <SaveHexItem title="Mental" />
+                      <SaveHexItem title="Pysical" register={register} />
+                      <SaveHexItem title="Evasion" register={register} />
+                      <SaveHexItem title="Mental" register={register} />
                     </div>
                   </div>
                 </div>
@@ -253,12 +271,12 @@ const CharacterSheet = () => {
                       </div>
                     </div>
                     <div id="attributes_container">
-                      <AttributeRightOffset title="STR" />
-                      <AttributeLeftOffset title="DEX" />
-                      <AttributeRightOffset title="CON" />
-                      <AttributeLeftOffset title="INT" />
-                      <AttributeRightOffset title="WIS" />
-                      <AttributeLeftOffset title="CHA" />
+                      <AttributeRightOffset title="STR" register={register} />
+                      <AttributeLeftOffset title="DEX" register={register} />
+                      <AttributeRightOffset title="CON" register={register} />
+                      <AttributeLeftOffset title="INT" register={register} />
+                      <AttributeRightOffset title="WIS" register={register} />
+                      <AttributeLeftOffset title="CHA" register={register} />
                     </div>
                   </div>
                 </div>
@@ -268,14 +286,22 @@ const CharacterSheet = () => {
                   title="Cybernetics/Innate Abilites"
                   rows={4}
                   columns={1}
+                  register={register}
+                  indexName="cybernetics"
                 />
               </div>
               <div id="character_psionic" className="full_width">
-                <StandardBox title="Psionic Techniques" rows={8} columns={1} />
+                <StandardBox
+                  title="Psionic Techniques"
+                  rows={8}
+                  columns={1}
+                  register={register}
+                />
                 <HexBoxTopRight
                   title="Psionic Effort"
                   hexLabel="Max:"
                   rows={3}
+                  register={register}
                 />
               </div>
             </motion.div>
@@ -296,21 +322,29 @@ const CharacterSheet = () => {
                   title="Stowed Equipment (Backpack)"
                   rows={12}
                   columns={1}
+                  register={register}
+                  indexName="stowed"
                 />
                 <StandardBox
                   title="Non-Encumbering Equipment"
                   rows={5}
                   columns={1}
+                  register={register}
+                  indexName="non_encumb"
                 />
                 <StandardBox
                   title="Equipment in Storage"
                   rows={6}
                   columns={1}
+                  register={register}
+                  indexName="storage_equipment"
                 />
                 <StandardBox
                   title="Assets/Owned Property"
                   rows={6}
                   columns={1}
+                  register={register}
+                  indexName="assets"
                 />
               </div>
             </motion.div>
@@ -320,13 +354,27 @@ const CharacterSheet = () => {
               variants={sheetColumn}
             >
               <div id="character_other1">
-                <StandardBox title="Notes to Remember" rows={9} columns={1} />
+                <StandardBox
+                  title="Notes to Remember"
+                  rows={9}
+                  columns={1}
+                  register={register}
+                  indexName="notes"
+                />
                 <StandardBox
                   title="Vehicle, Robot, and Drone Details"
                   rows={9}
                   columns={1}
+                  register={register}
+                  indexName="drone_robot_vehicle"
                 />
-                <StandardBox title="Starship Details" rows={12} columns={1} />
+                <StandardBox
+                  title="Starship Details"
+                  rows={12}
+                  columns={1}
+                  register={register}
+                  indexName="starship"
+                />
               </div>
             </motion.div>
             <motion.div
@@ -339,11 +387,37 @@ const CharacterSheet = () => {
                   title="Noteworth Achievements"
                   rows={9}
                   columns={1}
+                  register={register}
+                  indexName="achievements"
                 />
-                <StandardBox title="Aliases/ID's" rows={6} columns={1} />
-                <StandardBox title="Contacts and Allies" rows={6} columns={1} />
-                <StandardBox title="Languages Known" rows={3} columns={1} />
-                <StandardBox title="Current Goals" rows={3} columns={1} />
+                <StandardBox
+                  title="Aliases/ID's"
+                  rows={6}
+                  columns={1}
+                  register={register}
+                  indexName="aliases"
+                />
+                <StandardBox
+                  title="Contacts and Allies"
+                  rows={6}
+                  columns={1}
+                  register={register}
+                  indexName="allies"
+                />
+                <StandardBox
+                  title="Languages Known"
+                  rows={3}
+                  columns={1}
+                  register={register}
+                  indexName="languages"
+                />
+                <StandardBox
+                  title="Current Goals"
+                  rows={3}
+                  columns={1}
+                  register={register}
+                  indexName="goals"
+                />
               </div>
             </motion.div>
           </motion.section>

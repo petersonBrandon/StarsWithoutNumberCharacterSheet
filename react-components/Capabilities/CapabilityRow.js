@@ -25,6 +25,7 @@ const CapabilityRow = (props) => {
           spellCheck="false"
           autoComplete="off"
           autoCorrect="off"
+          {...props.register(props.col1)}
         />
       </div>
       <div className="capability_left">{props.col2}</div>
@@ -35,6 +36,7 @@ const CapabilityRow = (props) => {
           spellCheck="false"
           autoComplete="off"
           autoCorrect="off"
+          {...props.register(props.col2)}
         />
       </div>
       <div
@@ -59,6 +61,7 @@ const CapabilityRow = (props) => {
           spellCheck="false"
           autoComplete="off"
           autoCorrect="off"
+          {...props.register(props.col3)}
         />
       </div>
     </div>

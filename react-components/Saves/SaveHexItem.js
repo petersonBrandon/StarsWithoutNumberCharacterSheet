@@ -11,6 +11,7 @@ const SaveHexItem = (props) => {
           spellCheck="false"
           autoComplete="off"
           autoCorrect="off"
+          {...props.register(`saves_${props.title}`)}
         />
       </div>
     </div>

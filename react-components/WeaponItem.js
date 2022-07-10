@@ -1,7 +1,7 @@
 import { BiTargetLock } from 'react-icons/bi'
 import { GiHeavyBullets } from 'react-icons/gi'
 
-const WeaponItem = () => {
+const WeaponItem = (props) => {
   return (
     <div className="character_box">
       <div className="weapon_item">
@@ -14,6 +14,7 @@ const WeaponItem = () => {
               spellCheck="false"
               autoComplete="off"
               autoCorrect="off"
+              {...props.register(`${props.indexName}_name`)}
             />
           </div>
           <div className="weapon_icon_container">
@@ -26,6 +27,7 @@ const WeaponItem = () => {
               spellCheck="false"
               autoComplete="off"
               autoCorrect="off"
+              {...props.register(`${props.indexName}_range`)}
             />
           </div>
           <div className="weapon_item_right">
@@ -36,6 +38,7 @@ const WeaponItem = () => {
                 spellCheck="false"
                 autoComplete="off"
                 autoCorrect="off"
+                {...props.register(`${props.indexName}_atkModifier`)}
               />
             </div>
           </div>
@@ -47,6 +50,7 @@ const WeaponItem = () => {
                 spellCheck="false"
                 autoComplete="off"
                 autoCorrect="off"
+                {...props.register(`${props.indexName}_atkBonus`)}
               />
             </div>
           </div>
@@ -60,6 +64,7 @@ const WeaponItem = () => {
               spellCheck="false"
               autoComplete="off"
               autoCorrect="off"
+              {...props.register(`${props.indexName}_mods`)}
             />
           </div>
           <div className="weapon_icon_container top_border_thick">
@@ -72,6 +77,7 @@ const WeaponItem = () => {
               spellCheck="false"
               autoComplete="off"
               autoCorrect="off"
+              {...props.register(`${props.indexName}_ammo`)}
             />
           </div>
           <div className="weapon_item_right_bottom">Spacer</div>

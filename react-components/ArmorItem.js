@@ -1,6 +1,6 @@
 import React from "react";
 
-const ArmorItem = () => {
+const ArmorItem = (props) => {
   return (
     <div className="character_box">
       <div className="armor_item">
@@ -13,6 +13,7 @@ const ArmorItem = () => {
               spellCheck="false"
               autoComplete="off"
               autoCorrect="off"
+              {...props.register(`${props.indexName}_name`)}
             />
           </div>
           <div className="weapon_item_right">
@@ -24,6 +25,7 @@ const ArmorItem = () => {
                 spellCheck="false"
                 autoComplete="off"
                 autoCorrect="off"
+                {...props.register(`${props.indexName}_ac`)}
               />
             </div>
           </div>
@@ -39,6 +41,7 @@ const ArmorItem = () => {
               spellCheck="false"
               autoComplete="off"
               autoCorrect="off"
+              {...props.register(`${props.indexName}_mods`)}
             />
           </div>
           <div className="weapon_item_right_bottom">Spacer</div>

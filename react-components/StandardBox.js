@@ -11,7 +11,7 @@ const StandardBox = (props) => {
   for (let i = 0; i < props.rows; i++) {
     index = i;
     rows.push(
-      <div className="armor_item">
+      <div className="armor_item" key={`standard_box_col1_row${i}`}>
         <div className="top_row weapon_row">
           <div
             className={
@@ -20,19 +20,25 @@ const StandardBox = (props) => {
                 : "armor_item_mid numbered_row"
             }
           >
-            <p>{i + 1}</p>
-            <input
-              className="character_input standard_input"
-              type="text"
-              spellCheck="false"
-              autoComplete="off"
-              autoCorrect="off"
-            />
+            <div className="numbered_row">
+              <p>{i + 1}</p>
+              <input
+                className="character_input standard_input"
+                type="text"
+                spellCheck="false"
+                autoComplete="off"
+                autoCorrect="off"
+                {...props.register(`${props.indexName}_col1_row${i + 1}`)}
+              />
+            </div>
             {runCallback(() => {
               const cols = [];
               for (let i = 0; i < props.columns; i++) {
                 cols.push(
-                  <>
+                  <div
+                    className="numbered_row"
+                    key={`standard_box_col${i}_row${index}`}
+                  >
                     <p>{index + 1}</p>
                     <input
                       className="character_input foci_input"
@@ -40,8 +46,11 @@ const StandardBox = (props) => {
                       spellCheck="false"
                       autoComplete="off"
                       autoCorrect="off"
+                      {...props.register(
+                        `${props.indexName}_col${i + 2}_row${index + 1}`
+                      )}
                     />
-                  </>
+                  </div>
                 );
               }
               return cols;

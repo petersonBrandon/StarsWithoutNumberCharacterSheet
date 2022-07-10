@@ -1,6 +1,6 @@
 import CapabilityRow from "./CapabilityRow";
 
-const CapabilitiesTable = () => {
+const CapabilitiesTable = (props) => {
   return (
     <div className="character_box">
       <CapabilityRow
@@ -9,6 +9,7 @@ const CapabilitiesTable = () => {
         col1="Administer"
         col2="Pilot"
         col3="Work"
+        register={props.register}
       />
       <CapabilityRow
         topLeft={false}
@@ -16,6 +17,7 @@ const CapabilitiesTable = () => {
         col1="Connect"
         col2="Program"
         col3="Biosionics"
+        register={props.register}
       />
       <CapabilityRow
         topLeft={false}
@@ -23,6 +25,7 @@ const CapabilitiesTable = () => {
         col1="Exert"
         col2="Punch"
         col3="Metapsionics"
+        register={props.register}
       />
       <CapabilityRow
         topLeft={false}
@@ -30,6 +33,7 @@ const CapabilitiesTable = () => {
         col1="Fix"
         col2="Shoot"
         col3="Precognition"
+        register={props.register}
       />
       <CapabilityRow
         topLeft={false}
@@ -37,6 +41,7 @@ const CapabilitiesTable = () => {
         col1="Heal"
         col2="Sneak"
         col3="Telekinesis"
+        register={props.register}
       />
       <CapabilityRow
         topLeft={false}
@@ -44,6 +49,7 @@ const CapabilitiesTable = () => {
         col1="Know"
         col2="Stab"
         col3="Telepathy"
+        register={props.register}
       />
       <CapabilityRow
         topLeft={false}
@@ -51,6 +57,7 @@ const CapabilitiesTable = () => {
         col1="Lead"
         col2="Survive"
         col3="Teleportation"
+        register={props.register}
       />
       <CapabilityRow
         topLeft={false}
@@ -58,6 +65,7 @@ const CapabilitiesTable = () => {
         col1="Notice"
         col2="Talk"
         col3="-"
+        register={props.register}
       />
       <CapabilityRow
         topLeft={false}
@@ -65,6 +73,7 @@ const CapabilitiesTable = () => {
         col1="Perform"
         col2="Trade"
         col3="-"
+        register={props.register}
       />
     </div>
   );

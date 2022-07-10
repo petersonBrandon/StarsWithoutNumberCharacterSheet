@@ -1,6 +1,6 @@
 import React from "react";
 
-const FociItem = () => {
+const FociItem = (props) => {
   return (
     <div className="character_box">
       <div className="armor_item">
@@ -12,6 +12,7 @@ const FociItem = () => {
               spellCheck="false"
               autoComplete="off"
               autoCorrect="off"
+              {...props.register(`${props.indexName}_name`)}
             />
           </div>
           <div className="weapon_item_right">
@@ -23,6 +24,7 @@ const FociItem = () => {
                 spellCheck="false"
                 autoComplete="off"
                 autoCorrect="off"
+                {...props.register(`${props.indexName}_lvl`)}
               />
             </div>
           </div>
@@ -35,6 +37,7 @@ const FociItem = () => {
               spellCheck="false"
               autoComplete="off"
               autoCorrect="off"
+              {...props.register(`${props.indexName}_other`)}
             />
           </div>
           <div className="weapon_item_right_bottom">Spacer</div>

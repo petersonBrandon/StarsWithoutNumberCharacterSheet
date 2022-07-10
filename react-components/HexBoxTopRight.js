@@ -4,7 +4,7 @@ const HexBoxTopRight = (props) => {
   const rows = [];
   for (let i = 0; i < props.rows; i++) {
     rows.push(
-      <div className="armor_item">
+      <div className="armor_item" key={`hex_row_${i}`}>
         <div className="top_row weapon_row">
           <div
             className={
@@ -20,6 +20,7 @@ const HexBoxTopRight = (props) => {
               spellCheck="false"
               autoComplete="off"
               autoCorrect="off"
+              {...props.register(`${props.title}_row${i+1}`)}
             />
           </div>
         </div>
@@ -42,6 +43,7 @@ const HexBoxTopRight = (props) => {
               spellCheck="false"
               autoComplete="off"
               autoCorrect="off"
+              {...props.register(`${props.title}_${props.hexLabel}`)}
             />
           </div>
         </div>

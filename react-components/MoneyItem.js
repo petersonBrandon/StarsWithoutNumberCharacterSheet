@@ -12,6 +12,7 @@ const MoneyItem = (props) => {
             spellCheck="false"
             autoComplete="off"
             autoCorrect="off"
+            {...props.register(props.title)}
           />
         </div>
       </div>

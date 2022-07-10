@@ -601,4 +601,5 @@
   flex-direction: row;
   align-items: center;
   color: var(--1);
+  width: 100%;
 }

@@ -10,6 +10,7 @@ const ReadyItemRow = (props) => {
           spellCheck="false"
           autoComplete="off"
           autoCorrect="off"
+          {...props.register(`${props.indexName}_col1`)}
         />
       </div>
       <div className="ready_item ready_item_mid_col">
@@ -19,6 +20,7 @@ const ReadyItemRow = (props) => {
           spellCheck="false"
           autoComplete="off"
           autoCorrect="off"
+          {...props.register(`${props.indexName}_col2`)}
         />
       </div>
       <div className="ready_item ready_item_mid_col">
@@ -28,6 +30,7 @@ const ReadyItemRow = (props) => {
           spellCheck="false"
           autoComplete="off"
           autoCorrect="off"
+          {...props.register(`${props.indexName}_col3`)}
         />
       </div>
       <div className="ready_item ready_item_mid_col">
@@ -37,6 +40,7 @@ const ReadyItemRow = (props) => {
           spellCheck="false"
           autoComplete="off"
           autoCorrect="off"
+          {...props.register(`${props.indexName}_col4`)}
         />
       </div>
       <div className="ready_item ready_item_mid_col">
@@ -46,6 +50,7 @@ const ReadyItemRow = (props) => {
           spellCheck="false"
           autoComplete="off"
           autoCorrect="off"
+          {...props.register(`${props.indexName}_col5`)}
         />
       </div>
       <div className={props.lastRow ? "cut_corner_bottomRight ready_item" : "ready_item"}>
@@ -55,6 +60,7 @@ const ReadyItemRow = (props) => {
           spellCheck="false"
           autoComplete="off"
           autoCorrect="off"
+          {...props.register(`${props.indexName}_col6`)}
         />
       </div>
     </div>
